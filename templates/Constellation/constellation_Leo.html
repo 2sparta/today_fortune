@@ -9,36 +9,130 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css"/>
     <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
-    <title>2021년 신년운세!</title>
+    <title>오늘의 운세</title>
 
     <script type="text/javascript" src="https://new-year.spartacodingclub.kr/newyear.js"></script>
     <style>
         @font-face {
-            font-family: 'Cafe24Ssurround';
-            src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2105_2@1.0/Cafe24Ssurround.woff') format('woff');
-
+                font-family: 'CookieRunOTF-Bold';
+                src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_twelve@1.0/CookieRunOTF-Bold00.woff') format('woff');
+                font-weight: normal;
+                font-style: normal;
+            }
+        *{
+            font-family: "CookieRunOTF-Bold";
+            font-weight: normal;
+            font-style: normal;
+            margin: 0;
+            padding: 0;
+        }
+        ul{list-style: none;}
+        a{text-decoration: none;}
+        body{
+            width: 1200px;
+            height: 1800px;
+            margin: 0 auto;
         }
 
-        .mytitle {
-            color: lavenderblush;
+        /*header*/
+        #header{
+            width: 100%; height: 130px;
+            background: #fff;
+            position: relative;
+            overflow: hidden;
             text-align: center;
+        }
+        #logo{
+            width: 180px; height: 100px;
+            margin: 0 auto;
+            position: relative;
+            overflow: hidden;
+            text-align: center;
+        }
+        #logo>a>img{
+            width: 160px; height: 90px;
+            padding-top: 10px;
+        }
+        #header>ul>li{
+            float: right;
+            position: relative;
+            margin-left: 40px;
+            font-size: 20px;
+        }
+        #header>ul>li>a{
+            display: block;
+            padding-left: 20px;
+            padding-right: 20px;
+            color: #000;
+        }
+
+        /*section*/
+        .content1{
+             width: 1200px;
+             height: 225px;
+             background: #fff url("../../static/main_fortune_file/image/background-image.jpeg") no-repeat;
+             background-size: 100%;
+             opacity: 80%;
+         }
+         .content1 .text1{
+             width: 360px; height: 225px;
+             background: url("../../static/star_fortune_file/star_images/text_icon/star_fortune_icon.png") no-repeat;
+             background-position: 0,10px;
+             display: block;
+             margin: 0px 430px;
+         }
+         .content1 .back_btn{
+             float: left;
+             display: block;
+             width: 80px;
+             margin-left: 60px;
+             margin-top: 60px;
+         }
+         .content2{
+             width: 1200px; height: 1455px;
+             background: #fff;
+             overflow: hidden;
+         }
+        .text2{
+             font-size: 36px;
+             padding: 40px 50px;
+            color: #000;
+         }
+
+        /*another*/
+        .another> .another_text{
+            font-size: 36px;
+            color: #000;
+        }
+        .another{
+            width: 1200px; height: 600px;
+            overflow: hidden;
+        }
+        .another .another_text{
+            margin-left: 50px;
+            margin-top: 30px;
+        }
+        .another .btn{
+            padding: 0;
+        }
+        .another .btn>li{
+            float: left;
+            display: inline;
+            text-align: center;
+            margin: 50px 70px;
+        }
+        #fortune_box{
+            background-color: #fff;
+            border: 5px solid #000;
+            border-radius: 10px;
+        }
+        .card-body{
+            text-align: left;
+            font-size: 25px;
+        }
+        /*.mytitle {
             margin-top: 0px;
             margin-bottom: 3px;
-
-        }
-
-        .mytitle > h1 {
-            font-size: 80px;
-            margin-bottom: 10px;
-
-        }
-
-        .mytitle > h2 {
-            font-size: 23px;
-            position: absolute;
-            margin-left: 770px;
-            color: black;
-
         }
 
         .mytitle > a {
@@ -52,12 +146,6 @@
             background-color: rgba(255, 255, 255, 0.18);
 
         }
-
-        body {
-            background-image: url("../../static/main_fortune_file/image/background-image.jpeg");
-
-            background-size: 2150px;
-            background-color: rgba(255, 255, 255, 80);
 
         {
             #background-color: ivory
@@ -73,29 +161,6 @@
 
         }
 
-        * {
-            font-family: 'Cafe24Ssurround';
-            font-weight: normal;
-            font-style: normal;
-        }
-
-        .rtans > a {
-
-            display: block;
-            width: 350px;
-            height: 550px;
-            border: solid 5px #30799B;
-            background-color: white;
-            border-radius: 60px;
-            box-shadow: 0px 0px 10px 0px #30799B;
-            margin: 65px;
-            background-size: cover;
-            background-position: center;
-            color: black;
-            text-align: center;
-            font-size: 50px;
-            text-decoration-line: none;
-        }
 
         .back {
             position: absolute;
@@ -130,31 +195,13 @@
 
         }
 
-        .sign {
-            position: absolute;
-            margin-left: 300px;
-            margin-top: 100px;
-        }
-
-        .dream {
-            position: absolute;
-            margin-left: 800px;
-            margin-top: 100px;
-        }
-
-        .random {
-            position: absolute;
-            margin-left: 1300px;
-            margin-top: 100px;
-        }
-
         .card-size {
 
             font-size: 20px;
             margin-left: 230px;
             margin-top: 70px;
 
-        }
+        }*/
     </style>
     <script>
         $(document).ready(function () {
@@ -200,30 +247,45 @@
 
 <body>
 
-<div class="mytitle">
-    <h1><img src="../../static/main_fortune_file/text_icon/today_fortune_icon.png"></h1>
-    <h2> ___ 님의 별자리 운세 결과는..? </h2>
-    <div class = "card-size">
-        <div class="card border-light mb-3"  id="fortune_box" style="max-width: 90rem;">
+    <header id="header">
+        <div id="logo"><a href="/"><img src="../../static/main_fortune_file/logo/logo.png" alt="logo"></a></div>
+        <ul class="navbar_menu">
+            <li><a href="/special">ABOUT US</a></li>
+            <li><a href="/">HOME</a></li>
+        </ul>
+    </header>
+    <section>
+        <div class="content1">
+            <span class="back_btn"><a href="#"><img src="../../static/main_fortune_file/button/back_btn.png" alt="back_btn"></a></span>
+            <div class="text1"></div>
         </div>
-    </div>
+        <div class="content2">
+            <div class="mytitle">
+                <p class="text2">_____님의 별자리 운세 결과는...?</p>
+                    <div class = "card-size">
+                        <div class="card border-light mb-3"  id="fortune_box" style="max-width: 90rem; ">
+                        </div>
+                    </div>
+                </div>
 
-<div class="another">다른 운세 보러가기</div>
-<a href="../index.html">
-    <div class="sign"><img src="../../static/main_fortune_file/sample/zodiac_small_fortune.png" width="300"></div>
-</a>
-<a href="../index.html">
-    <div class="dream"><img src="../../static/main_fortune_file/sample/dream_small_fortune.png" width="300"></div>
-</a>
-<a href="../index.html">
-    <div class="random"><img src="../../static/main_fortune_file/sample/random_small_fortune.png" width="300"></div>
-</a>
-</div>
+                <div class="another">
+                    <p class="another_text">다른 운세 보러가기</p>
+                    <ul class="btn">
+                        <li>
+                            <a href="../index.html"><img src="../../static/main_fortune_file/sample/zodiac_small_fortune.png" alt="sign"></a>
+                        </li>
+                        <li>
+                            <a href="../index.html"><img src="../../static/main_fortune_file/sample/dream_small_fortune.png" alt="dream"></a>
+                        </li>
+                        <li>
+                            <a href="../index.html"><img src="../../static/main_fortune_file/sample/random_small_fortune.png" alt="random"></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
 
-
-</div>
-
-
+    </section>
 </body>
 
 </html>
