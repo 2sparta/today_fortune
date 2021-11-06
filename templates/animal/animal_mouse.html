@@ -76,7 +76,7 @@
          }
          .content1 .text1{
              width: 360px; height: 225px;
-             background: url("../../static/star_fortune_file/star_images/text_icon/star_fortune_icon.png") no-repeat;
+             background: url("../../static/zodiac_fortune_file/zodiac_images/text_icon/zodiac_fortune_icon.png") no-repeat;
              background-position: 0,10px;
              display: block;
              margin: 0px 430px;
@@ -205,13 +205,13 @@
     </style>
     <script>
         $(document).ready(function () {
-            Sagittarius();
+            Aquarius();
         });
 
-        function Sagittarius() {
+        function Aquarius() {
             $.ajax({
                 type: 'GET',
-                url: '/api/Sagittarius',
+                url: '/api/Aquarius',
                 data: {},
                 success: function (response) {
                     let stars = response['cons_fortune']
@@ -246,6 +246,7 @@
 </head>
 
 <body>
+
     <header id="header">
         <div id="logo"><a href="/"><img src="../../static/main_fortune_file/logo/logo.png" alt="logo"></a></div>
         <ul class="navbar_menu">
@@ -260,7 +261,7 @@
         </div>
         <div class="content2">
             <div class="mytitle">
-                <p class="text2">_____님의 별자리 운세 결과는...?</p>
+                <p class="text2">_____님의 띠별 운세 결과는...?</p>
                     <div class = "card-size">
                         <div class="card border-light mb-3"  id="fortune_box" style="max-width: 90rem; ">
                         </div>
@@ -271,7 +272,7 @@
                     <p class="another_text">다른 운세 보러가기</p>
                     <ul class="btn">
                         <li>
-                            <a href="../index.html"><img src="../../static/main_fortune_file/sample/zodiac_small_fortune.png" alt="sign"></a>
+                            <a href="../index.html"><img src="../../static/main_fortune_file/sample/star_small_fortune.png" alt="star"></a>
                         </li>
                         <li>
                             <a href="../index.html"><img src="../../static/main_fortune_file/sample/dream_small_fortune.png" alt="dream"></a>
@@ -283,6 +284,7 @@
                 </div>
             </div>
         </div>
+
     </section>
 </body>
 
