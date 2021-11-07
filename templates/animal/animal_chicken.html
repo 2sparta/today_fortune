@@ -214,13 +214,13 @@
     </style>
     <script>
         $(document).ready(function () {
-            Mouse();
+            Chicken();
         });
 
-        function Mouse() {
+        function Chicken() {
             $.ajax({
                 type: 'GET',
-                url: '/api/Mouse',
+                url: '/api/Chicken',
                 data: {},
                 success: function (response) {
                     let stars = response['cons_fortune']
