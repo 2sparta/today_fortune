@@ -222,17 +222,17 @@
                         let week_text = stars[i]['week_text']
                         let month_text = stars[i]['month_text']
                         let date = stars[i]['date']
-                        let temp_html = `<div class="card-body">
-                                            <h5 class="card-title">${title} => ${date}</h5>
-                                            <p class="card-text">오늘의 운세</p>
-                                            <p class="card-text">${today_text}</p>
-                                            <p class="card-text">내일의 운세</p>
-                                            <p class="card-text">${tomorrow_text}</p>
-                                            <p class="card-text">이주의 운세</p>
-                                            <p class="card-text">${week_text}</p>
-                                            <p class="card-text">이달의 운세</p>
-                                            <p class="card-text">${month_text}</p>
-                                        </div>`
+                        let temp_html = `<div class="card-header">${title} => ${date}</div>
+                                            <div class="card-body">
+                                                <p class="card-text">오늘의 운세</p>
+                                                <p class="card-text">${today_text}</p>
+                                                <p class="card-text">내일의 운세</p>
+                                                <p class="card-text">${tomorrow_text}</p>
+                                                <p class="card-text">이주의 운세</p>
+                                                <p class="card-text">${week_text}</p>
+                                                <p class="card-text">이달의 운세</p>
+                                                <p class="card-text">${month_text}</p>
+                                            </div>`
 
                         $('#fortune_box').append(temp_html)
 
