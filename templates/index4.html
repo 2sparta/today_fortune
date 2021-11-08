@@ -1,0 +1,247 @@
+<!Doctype html>
+<html lang="ko">
+
+    <head>
+        <link rel="shortcut icon" href="https://new-year.spartacodingclub.kr/images/favicon.png">
+        <meta property="og:title" content="" />
+        <meta property="og:description" content="2021년 띠 별 운세를 알려드립니다" />
+        <meta property="og:image" content="background-image.jpeg" />
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <!-- JS -->
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+                integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+                crossorigin="anonymous"></script>
+
+
+        <title>오늘의 운세</title>
+
+        <!-- style -->
+        <style type="text/css">
+            @font-face {
+                font-family: 'CookieRunOTF-Bold';
+                src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_twelve@1.0/CookieRunOTF-Bold00.woff') format('woff');
+                font-weight: normal;
+                font-style: normal;
+            }
+            * {font-family: 'CookieRunOTF-Bold';
+                font-weight: normal;
+                font-style: normal;
+                margin: 0;
+                padding: 0;
+            }
+            ul{list-style: none;}
+            a{text-decoration: none;}
+            body{
+                width: 1200px;
+                height: 1800px;
+                margin: 0 auto;
+            }
+
+            /*header*/
+        #header{
+            width: 100%; height: 130px;
+            background: #fff;
+            position: relative;
+            overflow: hidden;
+            text-align: center;
+        }
+        #logo{
+            width: 180px; height: 100px;
+            margin: 0 auto;
+            position: relative;
+            overflow: hidden;
+            text-align: center;
+        }
+        #logo>a>img{
+            width: 160px; height: 90px;
+            padding-top: 10px;
+        }
+        #header>ul>li{
+            float: right;
+            position: relative;
+            margin-left: 40px;
+            font-size: 20px;
+        }
+        #header>ul>li>a{
+            display: block;
+            padding-left: 20px;
+            padding-right: 20px;
+            color: #000;
+        }
+        /*section*/
+        .content1{
+             width: 1200px;
+             height: 225px;
+             background: #fff url("../static/main_fortune_file/image/background-image.jpeg") no-repeat;
+             background-size: 100%;
+             opacity: 80%;
+         }
+         .content1 .text1{
+             width: 360px; height: 225px;
+             background: url("../static/dream_fortune_file/text_icon/dream_fortune_icon.png") no-repeat;
+             background-position: 0,10px;
+             display: block;
+             margin: 0px 480px;
+
+         }
+            .wrap {
+                width: 1200px;
+                margin: auto 0;
+            }
+            .search{
+                text-align: center;
+            }
+            .main_text{
+                margin: 20px;
+                font-size: 35px;
+            }
+            .search_box{
+                margin: 20px 0px 30px 0px;
+            }
+            .form-control,
+            .btn{
+                font-size: 20px;
+            }
+            .btn{
+                padding: 2px 10px 2px 10px;
+                background-color: #9a9de8;
+                border: none;
+                border-radius: 5%;
+                color: #000;
+                cursor: pointer;
+            }
+
+            /*card*/
+            #cards-box{
+                margin: 0 auto;
+            }
+            .card:nth-child(n){
+                width: 280px; height: 450px;
+                margin: 40px 0px 20px 90px;
+                border: 2px solid #ccc;
+                border-radius: 10px;
+                background-color: #dee5fc;
+                float: left;
+            }
+            .card:nth-child(2n){
+                width: 280px; height: 450px;
+                margin: 40px 0px 20px 90px;
+                border: 2px solid #ccc;
+                border-radius: 10px;
+                background-color: #eddef9;
+                float: left;
+            }
+            .card-head{
+                width: 280px; height: 250px;
+            }
+            .card-body{
+                width: 280px; height: 200px;
+            }
+            /*.comment {
+                color: blue;
+                font-weight: bold;
+            }
+
+            #post-box {
+                width: 500px;
+                margin: 20px auto;
+                padding: 50px;
+                border: black solid;
+                border-radius: 5px;
+            }*/
+
+        </style>
+        <script>
+            $(document).ready(function () {
+                showArticles();
+            });
+
+        </script>
+
+    </head>
+
+    <body>
+    <header id="header">
+        <div id="logo"><a href="/"><img src="../static/main_fortune_file/logo/logo.png" alt="logo"></a></div>
+        <ul class="navbar_menu">
+            <li><a href="/special">ABOUT US</a></li>
+            <li><a href="/">HOME</a></li>
+        </ul>
+    </header>
+
+    <section>
+        <div class="content1">
+            <div class="text1"></div>
+        </div>
+        <div class="wrap">
+            <div class="search">
+                <h1 class="main_text">오늘 어떤 꿈을 꾸셨나요?</h1>
+                    <div class="search_box">
+                        <div class="input-group-prepend">
+                            <input type="text" placeholder="꿈의 키워드를 입력해주세요." class="form-control">
+                            <button onclick="searchbtn()" type="button" class="btn btn-primary" >Search</button>
+                        </div>
+                    </div> <hr>
+
+            <div id="cards-box" class="card-columns">
+                <div class="card">
+                    <div class="card-head">사진첨부</div>
+                    <div class="card-body">
+                        <a target="_blank" href="#" class="card-title">여기 기사 제목이 들어가죠</a>
+                        <p class="card-text">기사의 요약 내용이 들어갑니다. 동해물과 백두산이 마르고 닳도록 하느님이 보우하사 우리나라만세 무궁화 삼천리 화려강산...</p>
+                        <p class="card-text comment">여기에 코멘트가 들어갑니다.</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-head">사진첨부</div>
+                    <div class="card-body">
+                        <a target="_blank" href="#" class="card-title">여기 기사 제목이 들어가죠</a>
+                        <p class="card-text">기사의 요약 내용이 들어갑니다. 동해물과 백두산이 마르고 닳도록 하느님이 보우하사 우리나라만세 무궁화 삼천리 화려강산...</p>
+                        <p class="card-text comment">여기에 코멘트가 들어갑니다.</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-head">사진첨부</div>
+                    <div class="card-body">
+                        <a target="_blank" href="#" class="card-title">여기 기사 제목이 들어가죠</a>
+                        <p class="card-text">기사의 요약 내용이 들어갑니다. 동해물과 백두산이 마르고 닳도록 하느님이 보우하사 우리나라만세 무궁화 삼천리 화려강산...</p>
+                        <p class="card-text comment">여기에 코멘트가 들어갑니다.</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-head">사진첨부</div>
+                    <div class="card-body">
+                        <a target="_blank" href="#" class="card-title">여기 기사 제목이 들어가죠</a>
+                        <p class="card-text">기사의 요약 내용이 들어갑니다. 동해물과 백두산이 마르고 닳도록 하느님이 보우하사 우리나라만세 무궁화 삼천리 화려강산...</p>
+                        <p class="card-text comment">여기에 코멘트가 들어갑니다.</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-head">사진첨부</div>
+                    <div class="card-body">
+                        <a target="_blank" href="#" class="card-title">여기 기사 제목이 들어가죠</a>
+                        <p class="card-text">기사의 요약 내용이 들어갑니다. 동해물과 백두산이 마르고 닳도록 하느님이 보우하사 우리나라만세 무궁화 삼천리 화려강산...</p>
+                        <p class="card-text comment">여기에 코멘트가 들어갑니다.</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-head">사진첨부</div>
+                    <div class="card-body">
+                        <a target="_blank" href="#" class="card-title">여기 기사 제목이 들어가죠</a>
+                        <p class="card-text">기사의 요약 내용이 들어갑니다. 동해물과 백두산이 마르고 닳도록 하느님이 보우하사 우리나라만세 무궁화 삼천리 화려강산...</p>
+                        <p class="card-text comment">여기에 코멘트가 들어갑니다.</p>
+                    </div>
+                </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+    </body>
+
+</html>

@@ -85,10 +85,10 @@
          }
          .content1 .text1{
              width: 360px; height: 225px;
-             background: url("../../static/star_fortune_file/star_images/text_icon/star_fortune_icon.png") no-repeat;
+             background: url("../../static/zodiac_fortune_file/zodiac_images/text_icon/zodiac_fortune_icon.png") no-repeat;
              background-position: 0,10px;
              display: block;
-             margin: 0px 430px;
+             margin: 0px 450px;
          }
          .content1 .back_btn{
              float: left;
@@ -211,6 +211,11 @@
             margin-top: 70px;
 
         }*/
+        .btn{
+            font-family: CookieRunOTF-Bold;
+            font-size: 24px;
+            color: #000;
+        }
     </style>
     <script>
         $(document).ready(function () {
@@ -254,7 +259,7 @@
                         let month_text = stars[i]['month_text']
                         let temp_html = `<div id="accordion">
                                           <div class="card">
-                                          <div class="card-header">${name}</div>
+                                          <div class="card-header" style="font-size: 26px; color: #000">${name} => 51,63,75,87,99년생</div>
                                             <div class="card-header" id="headingOne">
                                               <h5 class="mb-0">
                                                 <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
@@ -356,7 +361,7 @@
         </div>
         <div class="content2">
             <div class="mytitle">
-                <p class="text2">_____님의 별자리 운세 결과는...?</p>
+                <p class="text2">_____님의 띠별 운세 결과는...?</p>
                     <div id="fortune_box">
 
                     </div>
@@ -366,7 +371,7 @@
                     <p class="another_text">다른 운세 보러가기</p>
                     <ul class="btn">
                         <li>
-                            <a href="../index.html"><img src="../../static/main_fortune_file/sample/zodiac_small_fortune.png" alt="sign"></a>
+                            <a href="../index.html"><img src="../../static/main_fortune_file/sample/star_small_fortune.png" alt="sign"></a>
                         </li>
                         <li>
                             <a href="../index.html"><img src="../../static/main_fortune_file/sample/dream_small_fortune.png" alt="dream"></a>
