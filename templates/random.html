@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css"/>
+    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+    <title>오늘의 운세</title>
+
+    <script type="text/javascript" src="https://new-year.spartacodingclub.kr/newyear.js"></script>
+    <style>
+        @font-face {
+                font-family: 'CookieRunOTF-Bold';
+                src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_twelve@1.0/CookieRunOTF-Bold00.woff') format('woff');
+                font-weight: normal;
+                font-style: normal;
+            }
+        *{
+            font-family: "CookieRunOTF-Bold";
+            font-weight: normal;
+            font-style: normal;
+            margin: 0;
+            padding: 0;
+        }
+
+        ul{list-style: none;}
+        a{text-decoration: none;}
+        body{
+            width: 1200px;
+            height: 1800px;
+            margin: 0 auto;
+        }
+
+        /*header*/
+        #header{
+            width: 100%; height: 130px;
+            background: #fff;
+            position: relative;
+            overflow: hidden;
+            text-align: center;
+        }
+        #logo{
+            width: 180px; height: 100px;
+            margin: 0 auto;
+            position: relative;
+            overflow: hidden;
+            text-align: center;
+        }
+        #logo>a>img{
+            width: 160px; height: 90px;
+            padding-top: 10px;
+        }
+        #header>ul>li{
+            float: right;
+            position: relative;
+            margin-left: 40px;
+            font-size: 20px;
+        }
+        #header>ul>li>a{
+            display: block;
+            padding-left: 20px;
+            padding-right: 20px;
+            color: #000;
+        }
+        /*돌림판*/
+        html, body, button {
+            font-family: Arial, "돋움", Dotum, "굴림", Gulim, "Apple SD Gothic Neo", AppleGothic, sans-serif;
+        }
+
+        button {
+            border: 0;
+            margin: 0;
+            padding: 0;
+        }
+
+        .title {
+            margin-top: 50px;
+            text-align: center;
+        }
+
+        .box-roulette {
+            position: relative;
+            margin: 50px auto;
+            width: 500px;
+            height: 500px;
+            border: 10px solid #ccc;
+            border-radius: 50%;
+            background: #ccc;
+            overflow: hidden;
+        }
+
+        .box-roulette .markers {
+            position: absolute;
+            left: 50%;
+            top: 0;
+            margin-left: -25px;
+            width: 0;
+            height: 0;
+            border: 25px solid #fff;
+            border-left-color: transparent;
+            border-right-color: transparent;
+            border-bottom-color: transparent;
+            z-index: 9999;
+        }
+
+        .box-roulette .roulette {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        .box-roulette .item {
+            position: absolute;
+            top: 0;
+            width: 0;
+            height: 0;
+            border: 0 solid transparent;
+            transform-origin: 0 100%;
+        }
+
+        .box-roulette .label {
+            position: absolute;
+            left: 0;
+            top: 0;
+            color: #fff;
+            white-space: nowrap;
+            transform-origin: 0 0;
+        }
+
+        .box-roulette .label .text {
+            display: inline-block;
+            font-size: 20px;
+            font-weight: bold;
+            line-height: 1;
+            vertical-align: middle;
+        }
+
+        #btn-start {
+            display: block;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            margin: -50px 0 0 -50px;
+            width: 100px;
+            height: 100px;
+            font-weight: bold;
+            background: #fff;
+            border-radius: 50px;
+            z-index: 9999;
+            cursor: pointer;
+        }
+
+        /*section*/
+        .content1{
+             width: 1200px;
+             height: 225px;
+             background: #fff url("../../static/main_fortune_file/image/background-image.jpeg") no-repeat;
+             background-size: 100%;
+             opacity: 80%;
+         }
+         .content1 .text1{
+             width: 360px; height: 225px;
+             {#background: url("../../static/star_fortune_file/star_images/text_icon/star_fortune_icon.png") no-repeat;#}
+             background-position: 0,10px;
+             display: block;
+             margin: 0px 430px;
+         }
+         .content1 .back_btn{
+             float: left;
+             display: block;
+             width: 80px;
+             margin-left: 60px;
+             margin-top: 60px;
+         }
+         .content2{
+             width: 1200px; height: 1455px;
+             background: #fff;
+             overflow: hidden;
+         }
+        .text2{
+             font-size: 36px;
+             padding: 40px 50px;
+            color: #000;
+         }
+
+        /*another*/
+        .another> .another_text{
+            font-size: 36px;
+            color: #000;
+        }
+        .another{
+            width: 1200px; height: 600px;
+            overflow: hidden;
+        }
+        .another .another_text{
+            margin-left: 50px;
+            margin-top: 30px;
+        }
+        .another .btn{
+            padding: 0;
+        }
+        .another .btn>li{
+            float: left;
+            display: inline;
+            text-align: center;
+            margin: 50px 70px;
+        }
+
+        .card-body{
+            text-align: left;
+            font-size: 25px;
+        }
+
+    </style>
+    <script>
+        /*돌림판*/
+        (function ($) {
+            $.fn.extend({
+
+                roulette: function (options) {
+
+                    var defaults = {
+                        angle: 0,
+                        angleOffset: -45,
+                        speed: 5000,
+                        easing: "easeInOutElastic",
+                    };
+
+                    var opt = $.extend(defaults, options);
+
+                    return this.each(function () {
+                        var o = opt;
+
+                        var data = [
+                            {
+                                color: '#3f297e',
+                                text: 'N분의 1'
+                            },
+                            {
+                                color: '#1d61ac',
+                                text: '요즘것들'
+                            },
+                            {
+                                color: '#169ed8',
+                                text: '도박'
+                            },
+                            {
+                                color: '#209b6c',
+                                text: '젓가락'
+                            },
+                            {
+                                color: '#60b236',
+                                text: '거북선'
+                            },
+                            {
+                                color: '#efe61f',
+                                text: '겁'
+                            },
+                            {
+                                color: '#f7a416',
+                                text: 'Day Day'
+                            },
+                            {
+                                color: '#e6471d',
+                                text: '호랑나비'
+                            },
+                            {
+                                color: '#dc0936',
+                                text: 'Okey Dokey'
+                            },
+                            {
+                                color: '#e5177b',
+                                text: '오빠차'
+                            },
+                            {
+                                color: '#be107f',
+                                text: 'RESPECT'
+                            },
+                            {
+                                color: '#881f7e',
+                                text: '작두'
+                            }
+                        ];
+
+                        var $wrap = $(this);
+                        var $btnStart = $wrap.find("#btn-start");
+                        var $roulette = $wrap.find(".roulette");
+                        var wrapW = $wrap.width();
+                        var angle = o.angle;
+                        var angleOffset = o.angleOffset;
+                        var speed = o.speed;
+                        var esing = o.easing;
+                        var itemSize = data.length;
+                        var itemSelector = "item";
+                        var labelSelector = "label";
+                        var d = 360 / itemSize;
+                        var borderTopWidth = wrapW;
+                        var borderRightWidth = tanDeg(d);
+
+                        for (i = 1; i <= itemSize; i += 1) {
+                            var idx = i - 1;
+                            var rt = i * d + angleOffset;
+                            var itemHTML = $('<div class="' + itemSelector + '">');
+                            var labelHTML = '';
+                            labelHTML += '<p class="' + labelSelector + '">';
+                            labelHTML += '	<span class="text">' + data[idx].text + '<\/span>';
+                            labelHTML += '<\/p>';
+
+                            $roulette.append(itemHTML);
+                            $roulette.children("." + itemSelector).eq(idx).append(labelHTML);
+                            $roulette.children("." + itemSelector).eq(idx).css({
+                                "left": wrapW / 2,
+                                "top": -wrapW / 2,
+                                "border-top-width": borderTopWidth,
+                                "border-right-width": borderRightWidth,
+                                "border-top-color": data[idx].color,
+                                "transform": "rotate(" + rt + "deg)"
+                            });
+
+                            var textH = parseInt(((2 * Math.PI * wrapW) / d) * .5);
+
+                            $roulette.children("." + itemSelector).eq(idx).children("." + labelSelector).css({
+                                "height": textH + 'px',
+                                "line-height": textH + 'px',
+                                "transform": 'translateX(' + (textH * 1.3) + 'px) translateY(' + (wrapW * -.3) + 'px) rotateZ(' + (90 + d * .5) + 'deg)'
+                            });
+
+                        }
+
+                        function tanDeg(deg) {
+                            var rad = deg * Math.PI / 180;
+                            return wrapW / (1 / Math.tan(rad));
+                        }
+
+
+                        $btnStart.on("click", function () {
+                            rotation();
+                        });
+
+                        function rotation() {
+
+                            var completeA = 360 * r(5, 10) + r(0, 360);
+
+                            $roulette.rotate({
+                                angle: angle,
+                                animateTo: completeA,
+                                center: ["50%", "50%"],
+                                easing: $.easing.esing,
+                                callback: function () {
+                                    var currentA = $(this).getRotateAngle();
+
+                                    console.log(currentA);
+
+                                },
+                                duration: speed
+                            });
+                        }
+
+                        function r(min, max) {
+                            return Math.floor(Math.random() * (max - min + 1)) + min;
+                        }
+
+                    });
+                }
+            });
+        })(jQuery);
+
+        $(function () {
+
+            $('.box-roulette').roulette();
+
+        });
+        $(document).ready(function () {
+            Aquarius();
+        });
+
+
+    </script>
+
+</head>
+
+<body>
+
+    <header id="header">
+        <div id="logo"><a href="/"><img src="../../static/main_fortune_file/logo/logo.png" alt="logo"></a></div>
+        <ul class="navbar_menu">
+            <li><a href="/special">ABOUT US</a></li>
+            <li><a href="/">HOME</a></li>
+        </ul>
+    </header>
+    <section>
+        <div class="content1">
+            <span class="back_btn"><a href="#"><img src="../../static/main_fortune_file/button/back_btn.png" alt="back_btn"></a></span>
+            <div class="text1"></div>
+        </div>
+        <div class="content2">
+
+   <p class="title">미리보는 2022년 신년운세</p>
+
+                <div class="box-roulette">
+                    <div class="markers"></div>
+                    <button type="button" id="btn-start">
+                        돌려 돌려<br>돌림판
+                    </button>
+                    <div class="roulette" id="roulette"></div>
+                </div>
+                <div class="another">
+                    <p class="another_text">다른 운세 보러가기</p>
+                    <ul class="btn">
+                        <li>
+                            <a href="../index.html"><img src="../../static/main_fortune_file/sample/zodiac_small_fortune.png" alt="sign"></a>
+                        </li>
+                        <li>
+                            <a href="../index.html"><img src="../../static/main_fortune_file/sample/dream_small_fortune.png" alt="dream"></a>
+                        </li>
+                        <li>
+                            <a href="../index.html"><img src="../../static/main_fortune_file/sample/random_small_fortune.png" alt="random"></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+    </section>
+</body>
+
+</html>
