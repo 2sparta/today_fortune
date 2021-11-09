@@ -11,7 +11,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>오늘의 운세</title>
 
-    <script type="text/javascript" src="https://new-year.spartacodingclub.kr/newyear.js"></script>
+    <!--<script type="text/javascript" src="https://new-year.spartacodingclub.kr/newyear.js"></script> -->
+    <script src="javascript/jquery-3.6.0.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+                integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+                crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script>
+        $(function (){
+            $(window).ready(function(){
+                $(".main_title").fadeIn(1000, function (){
+                    $(".sub_title").fadeIn(1100, function (){
+                        $(".rtans").fadeIn(1200)
+                    });
+                });
+            });
+
+            $(".start>a>img").hover(function (){
+                $(this).width(145);
+            },function (){
+                $(this).width(131);
+            });
+        });
+    </script>
     <style>
 
         @font-face {
@@ -150,6 +173,13 @@
         /*.rtans>a:hover {
         {#background-color: darkred;#}
         }*/
+        /*js*/
+        .main_title,
+        .sub_title,
+        .rtans{
+            display: none;
+        }
+
 
     </style>
 </head>
@@ -167,8 +197,8 @@
     <section>
         <div class="wrap">
             <div class="mytitle">
-                <h1><img src="../static/main_fortune_file/text_icon/today_fortune_icon.png"></h1>
-                <h2><img src="../static/main_fortune_file/text_icon/which_one_icon.png"></h2>
+                <h1 class="main_title"><img src="../static/main_fortune_file/text_icon/today_fortune_icon.png"></h1>
+                <h2 class="sub_title"><img src="../static/main_fortune_file/text_icon/which_one_icon.png"></h2>
             </div>
 
             <div class="rtans">
