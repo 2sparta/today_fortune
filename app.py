@@ -123,6 +123,14 @@ def animal_pig():
 def special_thanks():
     return render_template('aboutus.html')
 
+@app.route('/dream')
+def show_dream():
+    return render_template('index4.html')
+
+@app.route('/random')
+def show_random():
+    return render_template('random.html')
+
 
 # API 역할을 하는 부분
 @app.route('/api/Aquarius', methods=['GET'])
