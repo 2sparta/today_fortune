@@ -157,7 +157,13 @@
             <div class="text1"></div>
         </div>
         <div class="content2">
-            <p class="text2">_____님의 띠를 선택해주세요.</p>
+            <p class="text2"><script>
+                {
+                    const url = new URL(window.location.href);
+                    const urlParams = url.searchParams;
+                    document.write(urlParams.get('name'));
+                };
+            </script>님의 띠를 선택해주세요.</p>
             <div class="wrap">
                 <ul class="image">
                     <li><a href="#"><img src="../static/zodiac_fortune_file/zodiac_images/animal_icon/01.png" alt="쥐띠" width="160"></a></li>

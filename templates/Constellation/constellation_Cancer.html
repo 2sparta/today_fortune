@@ -12,6 +12,15 @@
     <title>오늘의 운세</title>
 
     <script type="text/javascript" src="https://new-year.spartacodingclub.kr/newyear.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
     <style>
         @font-face {
                 font-family: 'CookieRunOTF-Bold';
@@ -222,17 +231,66 @@
                         let week_text = stars[i]['week_text']
                         let month_text = stars[i]['month_text']
                         let date = stars[i]['date']
-                        let temp_html = `<div class="card-header" style="font-size: 26px; color: #000">${title} => ${date}</div>
-                                            <div class="card-body">
-                                                <p class="card-text">오늘의 운세</p>
-                                                <p class="card-text">${today_text}</p>
-                                                <p class="card-text">내일의 운세</p>
-                                                <p class="card-text">${tomorrow_text}</p>
-                                                <p class="card-text">이주의 운세</p>
-                                                <p class="card-text">${week_text}</p>
-                                                <p class="card-text">이달의 운세</p>
-                                                <p class="card-text">${month_text}</p>
-                                            </div>`
+                        let temp_html = `<div id="accordion">
+                                          <div class="card">
+                                          <div class="card-header" style="font-size: 26px; color: #000">${title} => ${date}</div>
+                                            <div class="card-header" id="headingOne">
+                                              <h5 class="mb-0">
+                                                <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                                  오늘의 운세
+                                                </button>
+                                              </h5>
+                                            </div>
+
+                                            <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+                                              <div class="card-body">
+                                                <p> ${today_text} </p>
+                                              </div>
+                                            </div>
+                                          </div>
+                                          <div class="card">
+                                            <div class="card-header" id="headingTwo">
+                                              <h5 class="mb-0">
+                                                <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                                  내일의 운세
+                                                </button>
+                                              </h5>
+                                            </div>
+                                            <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+                                              <div class="card-body">
+                                                <p> ${tomorrow_text} </p>
+                                              </div>
+                                            </div>
+                                          </div>
+                                          <div class="card">
+                                            <div class="card-header" id="headingThree">
+                                              <h5 class="mb-0">
+                                                <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                                  이번 주의 운세
+                                                </button>
+                                              </h5>
+                                            </div>
+                                            <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
+                                              <div class="card-body">
+                                                <p> ${week_text} </p>
+                                              </div>
+                                            </div>
+                                          </div>
+                                          <div class="card">
+                                            <div class="card-header" id="headingfour">
+                                              <h5 class="mb-0">
+                                                <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapsefour" aria-expanded="false" aria-controls="collapsefour">
+                                                  이달의 운세
+                                                </button>
+                                              </h5>
+                                            </div>
+                                            <div id="collapsefour" class="collapse" aria-labelledby="headingfour" data-parent="#accordion">
+                                              <div class="card-body">
+                                                <p> ${month_text} </p>
+                                              </div>
+                                            </div>
+                                          </div>
+                                        </div>`
 
                         $('#fortune_box').append(temp_html)
 
@@ -261,7 +319,6 @@
         </div>
         <div class="content2">
             <div class="mytitle">
-                <p class="text2">_____님의 별자리 운세 결과는...?</p>
                     <div class = "card-size">
                         <div class="card border-light mb-3"  id="fortune_box" style="max-width: 90rem; ">
                         </div>
