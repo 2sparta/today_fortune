@@ -2,6 +2,10 @@ from pymongo import MongoClient
 
 from flask import Flask, render_template, jsonify, request
 
+import urllib.request
+import urllib.parse #자동 변환 프로그램
+from bs4 import BeautifulSoup
+
 app = Flask(__name__)
 
 client = MongoClient('localhost', 27017)
@@ -21,6 +25,14 @@ def show_con():
 @app.route('/fortune_ani')
 def show_ani():
     return render_template('index3.html')
+
+@app.route('/fortune_dre')
+def show_dre():
+    return render_template('index4.html')
+
+@app.route('/fortune_ran')
+def show_ran():
+    return render_template('random.html')
 
 @app.route('/constellation_Aquarius')
 def constellation_Aquarius():
@@ -122,14 +134,6 @@ def animal_pig():
 @app.route('/special')
 def special_thanks():
     return render_template('aboutus.html')
-
-@app.route('/dream')
-def show_dream():
-    return render_template('index4.html')
-
-@app.route('/random')
-def show_random():
-    return render_template('random.html')
 
 
 # API 역할을 하는 부분
@@ -253,6 +257,33 @@ def Pig():
     fortune_cons = list(db2.fortune.find({'name' : '돼지띠' },{'_id':False}))
     return jsonify({'cons_fortune': fortune_cons})
 
+# 꿈해몽
+@app.route('/dream1')
+def dream():
+    return render_template('index4.html')
+
+
+@app.route('/dream2', methods=['GET'])
+def dream_get():
+    word_receive = request.args.get("word_give")
+    #print(word_receive)
+    plusUrl =urllib.parse.quote_plus(word_receive)
+
+    pageNum = 1
+    url = f'http://dreambible.kr/search/{plusUrl}/page/{pageNum}/'
+
+    html = urllib.request.urlopen(url).read()
+    soup = BeautifulSoup(html, 'html.parser')
+
+    titles = soup.find_all(class_="articletitle")
+    comments = soup.find_all(class_="dable-content-wrapper")
+    title_list = []
+    comment_list = []
+
+    for i in range(0, len(titles)):
+        title_list.append(titles[i].text)
+        comment_list.append(comments[i].text.split('.')[0])
+    return jsonify({'title_list':title_list,'comment_list':comment_list})
 
 
 if __name__ == '__main__':

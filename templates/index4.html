@@ -87,16 +87,7 @@
              background-position: 0,10px;
              display: block;
              margin: 0px 480px;
-         }
-         .content1 .back_btn{
-            float: left;
-            display: block;
-            width: 80px;
-            margin-left: 60px;
-            margin-top: 60px;
-        }
-         .content1 .back_btn img{
-             width: 80px;
+
          }
             .wrap {
                 width: 1200px;
@@ -130,7 +121,7 @@
                 margin: 0 auto;
             }
             .card:nth-child(n){
-                width: 280px; height: 450px;
+                width: 280px; height: 430px;
                 margin: 40px 0px 20px 90px;
                 border: 2px solid #ccc;
                 border-radius: 10px;
@@ -166,9 +157,54 @@
 
         </style>
         <script>
-            $(document).ready(function () {
-                showArticles();
-            });
+            //  function searchbtn() {
+            //     let word = $('#search1').val();
+            //     console.log(word)
+            //     $.ajax({
+            //         type: "GET",
+            //         url: "/dream2",
+            //         data: {word_give:word},
+            //         success: function (response) { // 성공하면
+            //
+            //            alert(response["msg"]);
+            //
+            //
+            //
+            //
+            //         }
+            //     })
+            // }
+
+
+            function searchbtn() {
+                let word = $('#search1').val();
+                console.log(word)
+                $.ajax({
+                    type: "GET",
+                    url: "/dream2?word_give=",
+                    data: {word_give:word},
+                    success: function (response) {
+                        let articles = response['title_list']
+                        for (let i =0; i < articles.length; i++) {
+                            let title = articles[i]['title']
+                            let comment = articles[i]['comment']
+
+
+                            let temp_html =`<div class="card">
+                                                <div class="card-head">사진첨부</div>
+                                                <div class="card-body">
+                                                    <a target="_blank" href="#" class="card-title">${title}</a>
+                                                    <p class="card-text">${comment}</p>
+                                                    <p class="card-text comment">여기에 코멘트가 들어갑니다.</p>
+                                                </div>
+                                            </div>`
+
+                            $('#cards-box').append(temp_html)
+                        }
+                    }
+                })
+            }
+
 
         </script>
 
@@ -185,68 +221,18 @@
 
     <section>
         <div class="content1">
-            <span class="back_btn"><a href="/"><img src="../../static/main_fortune_file/button/back_btn.png" alt="back_btn"></a></span>
             <div class="text1"></div>
         </div>
-        <div class="wrap">
-            <div class="search">
+        <div class="search">
                 <h1 class="main_text">오늘 어떤 꿈을 꾸셨나요?</h1>
                     <div class="search_box">
                         <div class="input-group-prepend">
-                            <input type="text" placeholder="꿈의 키워드를 입력해주세요." class="form-control">
+                            <input  id="search1" type="text" placeholder="꿈의 키워드를 입력해주세요." class="form-control">
                             <button onclick="searchbtn()" type="button" class="btn btn-primary" >Search</button>
                         </div>
                     </div> <hr>
 
             <div id="cards-box" class="card-columns">
-                <div class="card">
-                    <div class="card-head">사진첨부</div>
-                    <div class="card-body">
-                        <a target="_blank" href="#" class="card-title">여기 기사 제목이 들어가죠</a>
-                        <p class="card-text">기사의 요약 내용이 들어갑니다. 동해물과 백두산이 마르고 닳도록 하느님이 보우하사 우리나라만세 무궁화 삼천리 화려강산...</p>
-                        <p class="card-text comment">여기에 코멘트가 들어갑니다.</p>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="card-head">사진첨부</div>
-                    <div class="card-body">
-                        <a target="_blank" href="#" class="card-title">여기 기사 제목이 들어가죠</a>
-                        <p class="card-text">기사의 요약 내용이 들어갑니다. 동해물과 백두산이 마르고 닳도록 하느님이 보우하사 우리나라만세 무궁화 삼천리 화려강산...</p>
-                        <p class="card-text comment">여기에 코멘트가 들어갑니다.</p>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="card-head">사진첨부</div>
-                    <div class="card-body">
-                        <a target="_blank" href="#" class="card-title">여기 기사 제목이 들어가죠</a>
-                        <p class="card-text">기사의 요약 내용이 들어갑니다. 동해물과 백두산이 마르고 닳도록 하느님이 보우하사 우리나라만세 무궁화 삼천리 화려강산...</p>
-                        <p class="card-text comment">여기에 코멘트가 들어갑니다.</p>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="card-head">사진첨부</div>
-                    <div class="card-body">
-                        <a target="_blank" href="#" class="card-title">여기 기사 제목이 들어가죠</a>
-                        <p class="card-text">기사의 요약 내용이 들어갑니다. 동해물과 백두산이 마르고 닳도록 하느님이 보우하사 우리나라만세 무궁화 삼천리 화려강산...</p>
-                        <p class="card-text comment">여기에 코멘트가 들어갑니다.</p>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="card-head">사진첨부</div>
-                    <div class="card-body">
-                        <a target="_blank" href="#" class="card-title">여기 기사 제목이 들어가죠</a>
-                        <p class="card-text">기사의 요약 내용이 들어갑니다. 동해물과 백두산이 마르고 닳도록 하느님이 보우하사 우리나라만세 무궁화 삼천리 화려강산...</p>
-                        <p class="card-text comment">여기에 코멘트가 들어갑니다.</p>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="card-head">사진첨부</div>
-                    <div class="card-body">
-                        <a target="_blank" href="#" class="card-title">여기 기사 제목이 들어가죠</a>
-                        <p class="card-text">기사의 요약 내용이 들어갑니다. 동해물과 백두산이 마르고 닳도록 하느님이 보우하사 우리나라만세 무궁화 삼천리 화려강산...</p>
-                        <p class="card-text comment">여기에 코멘트가 들어갑니다.</p>
-                    </div>
-                </div>
 
                 </div>
             </div>
