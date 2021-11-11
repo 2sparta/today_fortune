@@ -180,7 +180,35 @@
             display: none;
         }
 
+            nav>p{
+            text-decoration: none;
+            color: black;
+            margin: 1em;
+        }
+        nav {
+            display: flex;
+            justify-content: right;
+            margin-top: -27px;
+            font-size: 20px;
 
+        }
+        #horizontal-underline{
+            position: absolute;
+            width: 0%;
+            background-color: #30799B;
+            top: 0px;
+            left: 0px;
+            height: 5px;
+            transition: 0.1s;
+        }
+
+         a:link { color: black; text-decoration: none;}
+         a:visited { color: black; text-decoration: none;}
+         a:hover { color: black; text-decoration: none;}
+
+         #margin{
+             margin-right: 50px;
+         }
     </style>
 </head>
 
@@ -188,10 +216,13 @@
 
     <header id="header">
         <div id="logo"><a href="#"><img src="../static/main_fortune_file/logo/logo.png" alt="logo"></a></div>
-        <ul class="navbar_menu">
-            <li><a href="/special">ABOUT US</a></li>
-            <li><a href="#">HOME</a></li>
-        </ul>
+
+        <nav>
+            <div id="horizontal-underline"></div>
+                <p id="margin"><a href="#">HOME</a></p>
+                <p><a href="/special">ABOUT US</a></p>
+
+         </nav>
     </header>
 
     <section>
@@ -208,7 +239,7 @@
                     <span class="start">
                         <script type="text/javascript">
                             function setUrl() {
-                                window.location.href = 'http://192.168.35.119:5000/fortune_con?name=' + document.getElementById('text1').value;
+                                window.location.href = 'http://192.168.176.2:5000/fortune_con?name=' + document.getElementById('text1').value;
 
                             };
                             </script>
@@ -222,7 +253,7 @@
                     <span class="start">
                         <script type="text/javascript">
                             function setAni() {
-                                window.location.href = 'http://192.168.35.119:5000/fortune_ani?name=' + document.getElementById('text2').value;
+                                window.location.href = 'http://192.168.176.2:5000/fortune_ani?name=' + document.getElementById('text2').value;
                             };
                             </script>
                         <a href="/fortune_ani"><img src="../static/main_fortune_file/button/start_btn.png" Onclick="setAni(); return false;"></a></a>
@@ -246,6 +277,18 @@
             </div>
         </div>
     </section>
+ <script>
+        let horizontalUnderline = document.getElementById("horizontal-underline")
+        let horizontalMenus = document.querySelectorAll("nav > p")
+
+        horizontalMenus.forEach(menu => menu.addEventListener("click", (e) => horizontalIndicator(e)))
+
+        function horizontalIndicator(e) {
+            horizontalUnderline.style.left = e.currentTarget.offsetLeft + "px";
+            horizontalUnderline.style.width = e.currentTarget.offsetWidth + "px";
+            horizontalUnderline.style.top = e.currentTarget.offsetTop + e.currentTarget.offsetHeight + "px";
+        }
+    </script>
 
 </body>
 
