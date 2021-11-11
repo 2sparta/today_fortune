@@ -26,8 +26,8 @@ def show_con():
 def show_ani():
     return render_template('index3.html')
 
-@app.route('/fortune_dre')
-def show_dre():
+@app.route('/dream1')
+def dream():
     return render_template('index4.html')
 
 @app.route('/fortune_ran')
@@ -258,9 +258,7 @@ def Pig():
     return jsonify({'cons_fortune': fortune_cons})
 
 # 꿈해몽
-@app.route('/dream1')
-def dream():
-    return render_template('index4.html')
+
 
 
 @app.route('/dream2', methods=['GET'])
