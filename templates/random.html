@@ -249,6 +249,7 @@
     </style>
     <script>
         /*돌림판 JS*/
+
         (function ($) {
             $.fn.extend({
 
@@ -269,7 +270,7 @@
                         var data = [
                             {
                                 color: '#3f297e' ,
-                                text: '로또1등'
+                                text: '로또1등',
                             },
                             {
                                 color: '#1d61ac',
@@ -315,6 +316,7 @@
                                 color: '#1d61ac',
                                 text: '네카라쿠베'
                             }
+
                         ];
 
                         var $wrap = $(this);
@@ -385,14 +387,17 @@
                                     var currentA = $(this).getRotateAngle();
 
                                     console.log(currentA);
+                                     alert('축하합니다!')
 
                                 },
                                 duration: speed
                             });
                         }
 
+
                         function r(min, max) {
                             return Math.floor(Math.random() * (max - min + 1)) + min;
+
                         }
 
                     });
@@ -402,6 +407,7 @@
 
         $(function () {
             $('.box-roulette').roulette();
+
         });
         /*돌림판 JS*/
         $(document).ready(function () {
