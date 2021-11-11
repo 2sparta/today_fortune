@@ -204,9 +204,14 @@
             <div class="rtans">
                 <div class="rtan1">
                     <p>별자리 운세</p>
-                    <div class="nickname">닉네임 <input type="text" style="height:25px; width: 120px; font-size : 15px;"></div>
+                    <div class="nickname">닉네임 <input type="text" id ="text" style="height:25px; width: 120px; font-size : 15px;"></div>
                     <span class="start">
-                        <a href="/fortune_con"><img src="../static/main_fortune_file/button/start_btn.png"></a>
+                        <script type="text/javascript">
+                            function setUrl() {
+                                window.location.href = 'http://192.168.35.119:5000/fortune_con?name=' + document.getElementById('text1').value;
+                            };
+                            </script>
+                        <a href="/fortune_con"><img src="../static/main_fortune_file/button/start_btn.png" id="login-button" id="login-button" Onclick="setUrl(); return false;"></a>
                         </span>
                 </div>
 
@@ -222,14 +227,14 @@
                     <p>꿈 해몽</p>
                     <div class="nickname">닉네임 <input type="text" style="height: 25px; width: 120px; font-size:15px;"></div>
                     <span class="start">
-                        <a href="/dream"><img src="../static/main_fortune_file/button/start_btn.png"></a>
+                        <a href="/fortune_dre"><img src="../static/main_fortune_file/button/start_btn.png"></a>
                         </span>
                 </div>
                 <div class="rtan4">
                     <P>랜덤 운세</P>
                     <div class="nickname">닉네임 <input type="text" style="height: 25px; width: 120px;  font-size:15px;"></div>
                     <span class="start">
-                        <a href="/random"><img src="../static/main_fortune_file/button/start_btn.png"></a>
+                        <a href="/fortune_ran"><img src="../static/main_fortune_file/button/start_btn.png"></a>
                         </span>
                 </div>
             </div>
