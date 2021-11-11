@@ -42,7 +42,7 @@
 
         body {
             width: 1200px;
-            height: 1800px;
+            height: 1450px;
             margin: 0 auto;
         }
 
@@ -99,19 +99,26 @@
         .title {
             margin-top: 50px;
             text-align: center;
+            color: #000;
+            font-size: 40px;
         }
-
+        .title:hover{
+            /*font-size: 42px;*/
+            color: rgb(43, 21, 170);
+        }
         .box-roulette {
             position: relative;
             margin: 50px auto;
             width: 500px;
             height: 500px;
-            border: 10px solid #ccc;
+            border: 10px solid #fff;
             border-radius: 50%;
-            background: #ccc;
+            background: #fff;
             overflow: hidden;
         }
-
+        .box-roulette:hover{
+            border: 10px solid rgb(100, 149, 228);
+        }
         .box-roulette .markers {
             position: absolute;
             left: 50%;
@@ -125,7 +132,6 @@
             border-bottom-color: transparent;
             z-index: 9999;
         }
-
         .box-roulette .roulette {
             position: relative;
             width: 100%;
@@ -189,7 +195,7 @@
             height: 225px;
             background: url("../static/random_fortune_file/text_icon/random_fortune_icon.png") no-repeat; background-position: 0, 10px;
             display: block;
-            margin: 0px 430px;
+            margin: 0px 450px;
         }
 
         .content1 .back_btn {
@@ -245,6 +251,12 @@
             text-align: left;
             font-size: 25px;
         }
+        .random_btn{
+            font-size: 28px;
+        }
+        .random_btn:hover{
+            color: red;
+        }
 
     </style>
     <script>
@@ -269,52 +281,52 @@
 
                         var data = [
                             {
-                                color: '#3f297e' ,
+                                color: 'rgb(81, 62, 190)' ,
                                 text: '로또1등',
                             },
                             {
-                                color: '#1d61ac',
+                                color: 'rgb(134, 100, 228)',
                                 text: '솔로탈출'
                             },
                             {
-                                color: '#3f297e',
+                                color: 'rgb(81, 62, 190)',
                                 text: '월급두배'
                             },
                             {
-                                color: '#1d61ac',
+                                color: 'rgb(134, 100, 228)',
                                 text: '주식상승'
                             },
                             {
-                                color: '#3f297e',
-                                text: '10억'
+                                color: 'rgb(81, 62, 190)',
+                                text: '10억 벌기'
                             },
                             {
-                                color: '#1d61ac',
+                                color: 'rgb(134, 100, 228)',
                                 text: '슈퍼카'
                             },
                             {
-                                color: '#3f297e',
+                                color: 'rgb(81, 62, 190)',
                                 text: '운수대통'
                             },
                             {
-                                color: '#1d61ac',
+                                color: 'rgb(134, 100, 228)',
                                 text: '부동산 껑충'
                             },
                             {
-                                color: '#3f297e',
+                                color: 'rgb(81, 62, 190)',
                                 text: '꿈의직장'
                             },
                             {
-                                color: '#1d61ac',
+                                color: 'rgb(134, 100, 228)',
                                 text: '불로장생'
                             },
                             {
-                                color: '#3f297e',
+                                color: 'rgb(81, 62, 190)',
                                 text: '인맥4배'
                             },
                             {
-                                color: '#1d61ac',
-                                text: '네카라쿠베'
+                                color: 'rgb(134, 100, 228)',
+                                text: '코딩천재'
                             }
 
                         ];
@@ -438,12 +450,12 @@
 
 
 
-        <p class="title">미리보는 2022년 신년운세</p>
+        <p class="title">미리보는 2022년 신년운세!</p>
 
         <div class="box-roulette">
             <div class="markers"></div>
             <button type="button" id="btn-start">
-                운세<br>돌림판
+                <p class="random_btn">click!</p>
             </button>
             <div class="roulette" id="roulette"></div>
         </div>
